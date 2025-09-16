@@ -25,6 +25,7 @@ base_dir = os.path.dirname(__file__)
 root_path = os.path.dirname(base_dir)
 file_path_phi =  os.path.join(root_path, 'utils', 'secrets', 'rsa_phi.txt')
 file_path_pem = os.path.join(root_path, 'utils', 'public_key.pem')
+file_path_ciphertext = os.path.join(root_path,'ciphers', 'rsa.txt' )
 
 # Écriture du pem file et du phi
 with open(file_path_phi, "w") as f:
@@ -36,8 +37,11 @@ with open(file_path_pem, 'wb') as f:
 
 
 # Le message doit être très court
-plaintext_message = 'o'
+plaintext_message = 'pl'
 encrypted_data = rsa_encrypt(plaintext_message, public_key_obj)
+
+with open(file_path_ciphertext, 'wb') as f:
+    f.write(encrypted_data)
 
 
 print(f'encrypted_text: {encrypted_data}')
