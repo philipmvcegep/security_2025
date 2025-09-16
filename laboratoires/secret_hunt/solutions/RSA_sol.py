@@ -38,10 +38,11 @@ def recover_p_q(n, phi):
 def recover_cybertext():
     base_dir = os.path.dirname(__file__)
     root_path = os.path.dirname(base_dir)
-    file_path_phi =  os.path.join(root_path, 'énoncé', 'utils', 'secrets', 'rsa_phi.txt')
-    with open(file_path_phi, "r") as f:
-        phi = f.read()
-    return int(phi)
+    file_path_ct =  os.path.join(root_path, 'énoncé', 'ciphers', 'rsa.txt')
+    with open(file_path_ct, "rb") as f:
+        ciphertext = f.read()
+    return ciphertext
+
 
 # Extended euclidian algorithm
 def egcd(a, b):
@@ -71,7 +72,7 @@ def main():
     key = RSA.construct((n, e, d, p, q))
 
     #lazy me I'm tired of making paths
-    ciphertext = b"\x8cJ\xd0\x9d\xb5\x80\xab\x1a!\xf7\xbb\xe3\x89|/,\xb0X\x1e\x8bi\\\x97\xc5*[\x9e\xcd\xc3\xe5\x01uL\x17\xe2\xaf\xa5+\xaf\x1e\xfb\x96|N\xb3/\x00\xb1\x8c8,\xa0\xa7\xbcsE>\x87\xae?\x074fU\x98[\x17(\xf5\x08m\xa1Y\x0f\xc3\xe8\x9a\\\x1e\xdddS'\xd3\xcb\xd4{,6e\xcb\xc2\x8dnF\x8c'f\xdc\x8bT\x95\xcbA<\x9a\xcb\x9a9G\xb2\x18\x17\x03\x8dE\xd5\xba\x12A\xe7\x8731^e\xc0{"
+    ciphertext = recover_cybertext()
     cipher = PKCS1_OAEP.new(key)
     plaintext = cipher.decrypt(ciphertext)
     print(f"Le message codé est {plaintext.decode('utf-8')}")
