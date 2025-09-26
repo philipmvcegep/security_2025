@@ -16,9 +16,14 @@ def load_csv(filename):
 # Hash avec sel
 def hash_password(password, salt=None):
     if salt is None:
+        hashed = hashlib.sha256(password.encode()).hexdigest()
+        return hashed
+    else:
         salt = os.urandom(16)
-    hashed = hashlib.sha256(salt + password.encode()).hexdigest()
-    return hashed, salt
+        hashed = hashlib.sha256(salt + password.encode()).hexdigest()
+        return salt, hashed
+        
+        
 
 # Vérification login
 # Utiliser mode = 'password_only' et users_db = load_csv('../data/passwords_plain.csv')).
@@ -31,13 +36,8 @@ def check_login(username, password, users_db, mode):
     if mode == 'password_only':
         return password == user_record['password']
     
-    # Cas mot de passe hashé sans sel
+    # Cas mot de passe hashé
     elif mode == 'hash_mode':
-        return hashlib.sha256(password.encode()).hexdigest() == user_record['hash']
+        return hashlib.sha256(password.encode()).hexdigest() == user_record['hashed']
     
-    # Cas mot de passe hashé avec sel
-    elif mode == 'salty_hash':
-        salt = bytes.fromhex(user_record['salt'])
-        hashed = hashlib.sha256(salt + password.encode()).hexdigest()
-        return hashed == user_record['hash']
     return False
