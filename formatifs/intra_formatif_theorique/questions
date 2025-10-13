@@ -1,0 +1,46 @@
+## note: durant l'examen, vous choisirez 10 de 15 questions.
+
+# Question 1
+Expliquez l'attaque par rainbow table.
+
+# Question 2
+Donner deux types de DoS.
+
+# Question 3
+Donner un exemple de XSS réflectif.
+
+# Question 4
+Qu'est-ce que SYN-RECV?
+
+# Question 5
+Qu'est-ce que l'IoT (Internet of Things)?
+
+# Question 6
+À quoi sert iptables en Linux?
+
+# Question 7 
+Pourquoi est-ce que la plupart des DDoS modernes utilisent le protocole UDP au lieu de TCP?
+
+# Question 8 
+Qu'est-ce que la base de registre en Windows?
+
+# Question 9
+Dans un système d'exploitation, qu'est-ce qu'un PID?
+
+# Question 10
+Qu'est-ce qui rend un mot de passe plus facile à brute force?
+
+# Question 11
+Pourquoi est-ce que les DDoS sont aussi populaires comme attaque?
+
+# Question 12
+Pourquoi est-ce que le HTTP flood ne fonctionne seulement que si un serveur Web comme Apache roule comme service?
+
+# Question 13
+Expliquer l'utilité de la création de clés Diffie-Hellmann contre les attaques MITM (Man in the Middle).
+
+# Question 14
+Est-ce qu'un accès SSH mal configuré peut être une vulnérabilité? Si oui, quelle est une attaque possible?
+
+# Question 15
+Pourquoi est-ce que AES est autant plus sécuritaire que l'algorithme Caesar?

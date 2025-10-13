@@ -1,0 +1,76 @@
+## note: durant l'examen, vous choisirez 10 de 15 questions.
+
+# Question 1
+## Expliquez l'attaque par rainbow table.
+C'est une attaque qui utilise une table pré-calculée de hachages sur des mots de passe fréquents afin de craquer un mot de passe à partir de son hash.
+
+# Question 2
+## Donner deux types de DoS.
+
+ICMP flood (ping flood) : envoie trop de paquets ICMP.
+
+SYN flood : inonde un serveur avec des requêtes TCP incomplètes.
+
+# Question 3
+## Expliquez ce qu'est l'usurpation d'adresse IP (IP spoofing) et donnez un exemple d'utilisation malveillante.
+L'usurpation d'adresse IP est l'acte de forger son adresse IP, soit remplacer son adresse IP publique pour une fausse dans un paquet réseau. Cette technique peut être utilisée pour mettre en oeuvre un SYN flood, parce que l'adresse envoyé par le SYN request ne correspond pas à la vraie adresse, permettant de saturer le serveur en masquant son identité.
+
+
+# Question 4
+## Qu'est-ce que SYN-RECV?
+C'est l'état d'une connexion TCP pour laquelle le serveur a reçu un SYN, a envoyé un SYN-ACK, mais manque l'ACK final.
+
+# Question 5
+## Qu'est-ce que l'IoT (Internet of Things)?
+Il s'agit des objets connectés avec un OS minimal: caméras, thermostats, voitures, Google Home, etc.
+
+
+# Question 6
+## À quoi sert iptables en Linux?
+C'est un outil de pare-feu, qui sert à ajouter des règles entrantes ou sortantes sur les ports réseau.
+
+
+# Question 7 
+## Pourquoi est-ce que la plupart des DDoS modernes utilisent le protocole UDP au lieu de TCP?
+Simplement parce que le débit est beaucoup plus rapide, il est plus facile d'accaparer toutes les ressources du serveur. Il est plus rapide parce qu'il ne demande pas de handshake.
+
+
+# Question 8 
+## Qu'est-ce que la base de registre en Windows?
+La base de registre est le coeur de Windows, comprenant tous les réglages système et tous les configurations de chaque utilisateur.
+
+
+# Question 9
+## Dans un système d'exploitation, qu'est-ce qu'un PID?
+Un PID est simplement un Process ID, un numéro qui identifie un processus.
+
+
+# Question 10
+## Qu'est-ce qui rend un mot de passe plus facile à brute force?
+S'il n'y a que des lettres minuscules et que le mot de passe est court, il y a moins de combinaisons possibles à tester.
+
+# Question 11
+## Pourquoi est-ce que les DDoS sont aussi populaires comme attaque?
+Parce qu'elles affaiblissent les serveurs, sont faciles à mettre en oeuvre et sont souvent le premier pas pour une attaque plus sophistiquée.
+
+# Question 12
+## Pourquoi est-ce que le HTTP flood ne fonctionne seulement que si un serveur Web comme Apache roule comme service?
+Il faut qu'un service HTTP soit présent pour que la requête HTTP soit traitée. Sinon, elle sera tout de suite rejetée.
+
+
+# Question 13
+## Expliquer l'utilité de la création de clés Diffie-Hellmann contre les attaques MITM (Man in the Middle).
+La clé est créée conjointement et il n'est pas possible de l'inférer seulement avec l'information passant entre les deux partis se communiquant.
+
+
+# Question 14
+## Est-ce qu'un accès SSH à un Linux mal configuré peut être une vulnérabilité? Si oui, quelle est une attaque possible? Si non, pourquoi?
+Oui, un SSH mal configuré pourrait laisser les utilisateurs changer les accès et même se mettre sudo, ce qui est une attaque par escalation de privilèges.
+
+
+# Question 15
+## Pourquoi est-ce que AES est autant plus sécuritaire que les algorithmes de type Caesar?
+Les algos Caesar peuvent être facilement craqués avec l'analyse de fréquence dans le texte ou même par inspection. L'algo AES a plusieurs étapes qui marchent ensemble pour complexifier l'encryption et rendre ces techniques impossibles.
+
+(C'est en partie grâce aux Galois Fields (corps finis))
+
