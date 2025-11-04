@@ -34,7 +34,7 @@ def scapy_traceroute(target_host, max_hops=30):
             icmp_layer = reply[ICMP]
             
             if icmp_layer.type == 11 and icmp_layer.code == 0:
-                # Type 11, Code 0 is 'Time-to-live exceeded' (TTL=0 at a router)
+                # Type 11, Code 0 is 'Time-to-live exceeded' (TTL (time to live) = 0 at a router)
                 # The source IP of this reply is the router's address
                 print(f" {ttl:<2}  {reply.src}")
                 
@@ -50,7 +50,7 @@ def scapy_traceroute(target_host, max_hops=30):
                 print(f" {ttl:<2}  {reply.src} (ICMP Type {icmp_layer.type})")
         
         else:
-            # Received a non-ICMP packet (e.g., UDP/TCP depending on the original probe)
+            # Received a non-ICMP packet (ex UDP)
             # Standard traceroute uses UDP or ICMP, but we'll stick to ICMP here
             print(f" {ttl:<2}  {reply.src} (Non-ICMP Response)")
 
@@ -61,6 +61,7 @@ if __name__ == "__main__":
         sys.exit(1)
         
     # NOTE: You must run this script with elevated privileges (sudo) 
-    # to send custom Layer 3 (IP) packets.
+    # to send custom Layer 3 (IP) packets.y
     target = sys.argv[1]
     scapy_traceroute(target)
+## example use sudo python3 scapy_traceroute.py google.com
