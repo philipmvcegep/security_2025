@@ -1,0 +1,18 @@
+from scapy.all import sniff, TCP, IP, Raw
+
+# Fonction pour analyser chaque paquet
+def packet_callback(packet):
+    # Paquets HTTP (port 80)
+    if packet.haslayer(TCP) and (packet[TCP].dport == 80 or packet[TCP].sport == 80):
+        print("\n[HTTP] Paquet non chiffré capturé.")
+        # Afficher la décomposition
+        print(packet.show())
+        
+        # Décomposer la couche HTTP si elle est présente (après TCP)
+        if packet.haslayer(Raw):
+            print("Données brutes (HTTP en clair):")
+            print(packet[Raw].load.decode(errors='ignore'))
+
+# Lance le sniffing sur l'interface par défaut (ou spécifiez 'iface="eth0"')
+# 'port 80 or port 443' filtre sur le trafic HTTP et HTTPS
+sniff(filter="port 80 or port 443", prn=packet_callback, store=0)
